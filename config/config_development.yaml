@@ -1,0 +1,14 @@
+app:
+  port: 9000
+
+db:
+  host: localhost
+  user: postgres
+  password: postgres
+  dbname: postgres
+  port: 5432
+  sslmode: disable
+
+
+jwt:
+  secret: monexaSecretKey

@@ -1,11 +1,12 @@
-package migrations
+package db
 
 import (
+	"fmt"
 	"github.com/go-gormigrate/gormigrate/v2"
 	"golang.org/x/crypto/bcrypt"
 	"gorm.io/gorm"
-	"log"
 	"monexa/models"
+	"os"
 	"time"
 )
 
@@ -155,7 +156,7 @@ func Migrate(db *gorm.DB) {
 	})
 
 	if err := m.Migrate(); err != nil {
-		log.Fatalf("Could not migrate: %v", err)
+		fmt.Fprint(os.Stderr, "⛔ ️Exit!!! Cannot apply migrations\n")
+		os.Exit(1)
 	}
-	log.Println("Migrations ran successfully")
 }
